@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import { getToken } from "redux/selectors";
 import { useGetCurrentQuery } from "redux/userApi";
+import Container from "components/Container";
 
 import css from "./App.module.css";
 
@@ -17,13 +18,17 @@ const App = () => {
   });
 
   return (
-    <>
-      <Suspense fallback={<p className={css.default}>...loading</p>}>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-        </Routes>
-      </Suspense>
-    </>
+    <Container>
+      {isLoading ? (
+        <p className={css.default}>...loading</p>
+      ) : (
+        <Suspense fallback={<p className={css.default}>...loading</p>}>
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+          </Routes>
+        </Suspense>
+      )}
+    </Container>
   );
 };
 
