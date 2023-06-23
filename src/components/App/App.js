@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { getToken } from "redux/selectors";
 import { useGetCurrentQuery } from "redux/userApi";
 import Container from "components/Container";
+import AppBar from "components/AppBar/AppBar";
 
 import css from "./App.module.css";
 
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <Container>
+      <AppBar />
       {isLoading ? (
         <p className={css.default}>...loading</p>
       ) : (
