@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import { getToken } from "redux/selectors";
 import { useGetCurrentQuery } from "redux/userApi";
 import Container from "components/Container";
-import AppBar from "components/AppBar/AppBar";
+import AppBar from "components/AppBar";
+import { RestrictedRoute } from "components/RestrictedRoute";
+// import { PrivatRoute } from "components/PrivatRoute";
 
 import css from "./App.module.css";
 
@@ -27,6 +29,15 @@ const App = () => {
         <Suspense fallback={<p className={css.default}>...loading</p>}>
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  // component={RegisterPage}
+                  redirectTo="/contacts"
+                />
+              }
+            ></Route>
           </Routes>
         </Suspense>
       )}
