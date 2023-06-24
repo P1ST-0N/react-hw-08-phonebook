@@ -13,6 +13,7 @@ import css from "./App.module.css";
 
 const HomePage = lazy(() => import("pages/HomePage/HomePage"));
 const RegisterPage = lazy(() => import("pages/RegisterPage/RegisterPage"));
+const LoginPage = lazy(() => import("pages/LoginPage/LoginPage"));
 
 const App = () => {
   const token = useSelector(getToken);
@@ -37,6 +38,12 @@ const App = () => {
                   component={RegisterPage}
                   redirectTo="/contacts"
                 />
+              }
+            ></Route>
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
               }
             ></Route>
           </Routes>
