@@ -14,6 +14,7 @@ import css from "./App.module.css";
 const HomePage = lazy(() => import("pages/HomePage/HomePage"));
 const RegisterPage = lazy(() => import("pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("pages/LoginPage/LoginPage"));
+// const
 
 const App = () => {
   const token = useSelector(getToken);
