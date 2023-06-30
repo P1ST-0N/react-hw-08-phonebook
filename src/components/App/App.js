@@ -7,14 +7,15 @@ import { useGetCurrentQuery } from "redux/userApi";
 import Container from "components/Container";
 import AppBar from "components/AppBar";
 import { RestrictedRoute } from "components/RestrictedRoute";
-// import { PrivatRoute } from "components/PrivatRoute";
+import { PrivatRoute } from "components/PrivatRoute";
+// import { useGetCurrentQuery } from 'redux/userApi';
 
 import css from "./App.module.css";
 
 const HomePage = lazy(() => import("pages/HomePage/HomePage"));
 const RegisterPage = lazy(() => import("pages/RegisterPage/RegisterPage"));
 const LoginPage = lazy(() => import("pages/LoginPage/LoginPage"));
-
+const ContactsPage = lazy(() => import("pages/ContactsPage/ContactsPage"));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
 
 const App = () => {
@@ -48,7 +49,10 @@ const App = () => {
                 <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
               }
             ></Route>
-
+            <Route
+              path="/contacts"
+              element={<PrivatRoute component={ContactsPage} redirectTo="/" />}
+            ></Route>
             <Route path="*" element={<NotFoundPage />}></Route>
           </Routes>
         </Suspense>
