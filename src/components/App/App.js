@@ -8,7 +8,6 @@ import Container from "components/Container";
 import AppBar from "components/AppBar";
 import { RestrictedRoute } from "components/RestrictedRoute";
 import { PrivatRoute } from "components/PrivatRoute";
-// import { useGetCurrentQuery } from 'redux/userApi';
 
 import css from "./App.module.css";
 
